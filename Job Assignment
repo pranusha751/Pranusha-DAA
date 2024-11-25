@@ -1,0 +1,16 @@
+# Job Assignment Example
+
+# List of employees
+employees = ["Alice", "Bob", "Charlie", "David"]
+
+# List of jobs
+jobs = ["Job1", "Job2", "Job3", "Job4"]
+
+# Assign jobs to employees
+assignments = {}
+for i in range(len(employees)):
+    assignments[employees[i]] = jobs[i]
+
+# Print the assignments
+for employee, job in assignments.items():
+    print(f"{employee} is assigned to {job}.")
