@@ -1,0 +1,29 @@
+class Node:
+    def __init__(self, key):
+        self.left = None
+        self.right = None
+        self.val = key
+
+def insert(root, key):
+    if root is None:
+        return Node(key)
+    else:
+        if root.val < key:
+            root.right = insert(root.right, key)
+        else:
+            root.left = insert(root.left, key)
+    return root
+
+def inorder(root):
+    if root:
+        inorder(root.left)
+        print(root.val, end=' ')
+        inorder(root.right)
+
+keys = [20, 10, 30, 5, 15, 25, 35]
+root = None
+for key in keys:
+    root = insert(root, key)
+
+print("Inorder traversal of the OBST:")
+inorder(root)
