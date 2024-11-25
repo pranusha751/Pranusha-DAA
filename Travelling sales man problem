@@ -1,0 +1,36 @@
+# Travelling Salesman Problem
+
+import itertools
+
+# Distance matrix
+distances = [
+    [0, 10, 15, 20],
+    [10, 0, 35, 25],
+    [15, 35, 0, 30],
+    [20, 25, 30, 0]
+]
+
+# Number of cities
+n = len(distances)
+
+# Generate all possible routes
+routes = itertools.permutations(range(n))
+
+# Initialize minimum distance and best route
+min_distance = float('inf')
+best_route = None
+
+# Calculate the distance for each route
+for route in routes:
+    current_distance = 0
+    for i in range(n):
+        current_distance += distances[route[i]][route[(i + 1) % n]]
+    
+    # Update minimum distance and best route
+    if current_distance < min_distance:
+        min_distance = current_distance
+        best_route = route
+
+# Output the result
+print("Minimum distance:", min_distance)
+print("Best route:", best_route)
