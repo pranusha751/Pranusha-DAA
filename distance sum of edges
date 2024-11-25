@@ -1,0 +1,14 @@
+# Distance sum of edges without using functions and in a simple way
+
+# Define the number of edges
+num_edges = 5
+
+# Initialize the sum of distances
+distance_sum = 0
+
+# Loop through each edge and calculate the distance
+for edge in range(1, num_edges + 1):
+    distance_sum += edge
+
+# Print the total distance sum
+print("Total distance sum of edges:", distance_sum)
