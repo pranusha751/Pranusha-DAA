@@ -1,0 +1,13 @@
+# Sample list
+my_list = [1, 2, 3, 4, 5]
+
+# Element to delete
+element_to_delete = 3
+
+# Deleting the element
+for i in range(len(my_list)):
+    if my_list[i] == element_to_delete:
+        del my_list[i]
+        break
+
+print(my_list)
