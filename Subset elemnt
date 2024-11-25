@@ -1,0 +1,15 @@
+def generate_subsets_with_element(nums, x):
+    def backtrack(start, path):
+        if x in path:
+            result.append(path)
+        for i in range(start, len(nums)):
+            backtrack(i + 1, path + [nums[i]])
+
+    result = []
+    backtrack(0, [])
+    return result
+
+E = [2, 3, 4, 5]
+x = 3
+subsets_with_3 = generate_subsets_with_element(E, x)
+print(subsets_with_3)
