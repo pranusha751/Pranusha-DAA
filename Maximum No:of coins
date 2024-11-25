@@ -1,0 +1,11 @@
+# Input: total amount
+total_amount = 100  # Example amount
+coins = [25, 10, 5, 1]  # Coin denominations
+max_coins = 0
+
+for coin in coins:
+    while total_amount >= coin:
+        total_amount -= coin
+        max_coins += 1
+
+print("Maximum number of coins:", max_coins)
