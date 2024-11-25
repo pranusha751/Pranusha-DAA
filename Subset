@@ -1,0 +1,13 @@
+# Subset without using functions and in a simple way
+
+# Sample list
+my_list = [1, 2, 3, 4, 5]
+
+# Generating subsets
+subsets = [[]]
+for num in my_list:
+    subsets += [curr + [num] for curr in subsets]
+
+# Displaying the subsets
+for subset in subsets:
+    print(subset)
