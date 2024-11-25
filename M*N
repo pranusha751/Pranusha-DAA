@@ -1,0 +1,5 @@
+M = 5  # Example value for M
+N = 3  # Example value for N
+
+result = M * N
+print("The result of M * N is:", result)
