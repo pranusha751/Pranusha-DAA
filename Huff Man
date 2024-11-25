@@ -1,0 +1,28 @@
+import sys
+
+graph = {
+    'A': {'B': 1, 'C': 4},
+    'B': {'A': 1, 'C': 2, 'D': 5},
+    'C': {'A': 4, 'B': 2, 'D': 1},
+    'D': {'B': 5, 'C': 1}
+}
+
+start = 'A'
+visited = {node: False for node in graph}
+distance = {node: sys.maxsize for node in graph}
+distance[start] = 0
+
+for _ in range(len(graph)):
+    min_node = None
+    for node in graph:
+        if not visited[node]:
+            if min_node is None or distance[node] < distance[min_node]:
+                min_node = node
+
+    for neighbor, weight in graph[min_node].items():
+        if distance[min_node] + weight < distance[neighbor]:
+            distance[neighbor] = distance[min_node] + weight
+
+    visited[min_node] = True
+
+print("Shortest distances from start node:", distance)
