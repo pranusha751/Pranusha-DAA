@@ -1,0 +1,12 @@
+# Input data
+data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+segment_size = 3
+
+# Segmentation process
+segments = []
+for i in range(0, len(data), segment_size):
+    segment = data[i:i + segment_size]
+    segments.append(segment)
+
+# Output the segments
+print(segments)
