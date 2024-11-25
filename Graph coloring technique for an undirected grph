@@ -1,0 +1,36 @@
+def is_safe(graph, v, color, c):
+    for i in range(len(graph)):
+        if graph[v][i] == 1 and color[i] == c:
+            return False
+    return True
+
+def graph_coloring_util(graph, m, color, v):
+    if v == len(graph):
+        return True
+
+    for c in range(1, m + 1):
+        if is_safe(graph, v, color, c):
+            color[v] = c
+            if graph_coloring_util(graph, m, color, v + 1):
+                return True
+            color[v] = 0
+
+    return False
+
+def graph_coloring(graph, m):
+    color = [0] * len(graph)
+    if not graph_coloring_util(graph, m, color, 0):
+        return None
+    return color
+
+edges = [(0, 1), (1, 2), (2, 3), (3, 0), (0, 2)]
+n = 4
+k = 3
+
+graph = [[0 for _ in range(n)] for _ in range(n)]
+for edge in edges:
+    graph[edge[0]][edge[1]] = 1
+    graph[edge[1]][edge[0]] = 1
+
+result = graph_coloring(graph, k)
+print("Coloring of the graph:", result)
