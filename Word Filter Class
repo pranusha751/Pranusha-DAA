@@ -1,0 +1,20 @@
+# Word Filter Class
+
+class WordFilter:
+    def __init__(self, banned_words):
+        self.banned_words = banned_words
+
+    def is_word_allowed(self, word):
+        return word not in self.banned_words
+
+    def filter_text(self, text):
+        words = text.split()
+        filtered_words = [word for word in words if self.is_word_allowed(word)]
+        return ' '.join(filtered_words)
+
+# Example usage
+banned = ['bad', 'ugly']
+filter = WordFilter(banned)
+text = "This is a bad example of an ugly situation."
+filtered_text = filter.filter_text(text)
+print(filtered_text)
